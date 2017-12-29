@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>checkbox radio demo</title>
+    <!-- 最新版本的 Bootstrap 核心 CSS 文件 -->
+    <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="promChosen.css">
+    <script src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
+</head>
+<body>
+<!-- bootstrap样式-->
+<div>
+    <table class="table table-bordered table-striped table-hover" >
+        <caption >dmChosen-bac API</caption>
+        <thead>
+        <tr class="rtl-table-header rtl-goods-table-tr">
+            <th class="mw150">功能</th>
+            <th class="mw110">使用方法</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr >
+            <td>初始化</td>
+            <td>
+                $('#promChosen1').promchosen({type:'',show:'all',data:[{key:'3',value:'我是单选'},{key:'4',value:'我是单选1'}],property:{dataValid:'pageManage'},checkedData:[]})
+                .on('selected.dm.chosen',function (data) {
+                console.log(data);
+                }).on('value.dm.chosen',function (data) {
+                console.log(data);
+                });
+                <br>
+                type:true/false,show:'key/value/all'  //true:多选，false:单选；
+                <br>
+                checkedData:初始化选中的值；data：数据集；property：属性节点
+                <br>
+            </td>
+        </tr>
+        <tr >
+            <td>设置数据集</td>
+            <td>
+                $('#promChosen1').promchosen('setData',[{key:'3',value:'我是单选'},{key:'4',value:'我是单选1'}]);//初始化data数据
+                <br>
+                $('#promChosen1').promchosen('setData',[{key:'3',value:'我是单选'}]，true);//true:设置选中的数据
+                <br>
+            </td>
+        </tr>
+        <tr >
+            <td>文本框是否可编辑</td>
+            <td>
+                $('#promChosen1').promchosen('setDisabled',true/false);文本框是否编辑状态
+                <br>
+                $('#pageManageDiv').promchosen('setData',[{key:'3',value:'我是单选'}]，true);//true:设置选中的数据
+                <br>
+            </td>
+        </tr>
+        <tr >
+            <td>DEMO</td>
+            <td>
+                <br>
+                <div style="margin-left: 20px;margin-bottom: 50px">
+                    单选test:<div  id="promChosen1">
+                </div>
+                </div>
+                <div style="margin-left: 20px;margin-bottom: 50px">
+                    多选test:<div  id="promChosen2">
+                </div>
+                </div>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+</body>
+<script src="./js/index.js"></script>
+<script src="./js/dmChosen.js"></script>
+</html>
